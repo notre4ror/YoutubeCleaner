@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Clean YouTube Extension",
+  "version": "1.0",
+  
+  "description": "Cleans the YouTube url when clicked right button on a link",
+  
+  "permissions": [
+    "clipboardWrite",
+    "activeTab",
+    "contextMenus"
+  ],
+  
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "youtubecleaner@example.com",
+    "strict_min_version": "58.0"
+  }
+}
+}
